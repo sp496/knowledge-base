@@ -29,3 +29,18 @@ In this example, the `get_data()` method initializes `self.data` if it is `None`
 This approach is known as lazy initialization, and it is a common technique for optimizing performance in
 object-oriented programming. It allows you to defer expensive operations until they are actually needed, which can
 reduce the overall cost of object creation and improve the responsiveness of your application.
+
+## Virtual environment
+
+To activate a Python virtual environment in Linux, follow these steps:
+
+1. Open a terminal window on your Linux machine.
+2. Navigate to the directory where you created your virtual environment.
+3. Run the following command to activate the virtual environment:
+```bash
+source <venv>/bin/activate
+```
+To deactivate the virtual environment, simply run the following command:
+```bash
+deactivate
+```
