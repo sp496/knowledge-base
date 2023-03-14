@@ -40,6 +40,7 @@ To activate a Python virtual environment in Linux, follow these steps:
 ```bash
 source <venv>/bin/activate
 ```
+
 To deactivate the virtual environment, simply run the following command:
 ```bash
 deactivate
