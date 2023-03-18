@@ -17,5 +17,8 @@ concurrency is one the child pipelines will run one after the other, at any give
 of the child pipeline in the ADF
 instance. [example](https://stackoverflow.com/questions/60531480/increasing-concurrency-in-azure-data-factory)
 
+In case of Tumbling windo trigger too a similar concept is used, tumbling window can be used to backfill data
+processing. So in such cases we can have multiple instances of the pipeline(being triggered by the tumbling window
+trigger)
 
 
