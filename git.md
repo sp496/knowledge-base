@@ -18,6 +18,3 @@ git push
 
 To prevent the .idea directory from being pushed again in the future, you can add it to your .gitignore file. 
 
-```bash
-.idea/
-```

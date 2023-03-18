@@ -25,4 +25,3 @@ Example: The `-p` flag ensures that both the "documents" directory and the "my_p
 ```bash
 mkdir -p documents/my_project
 ```
-
