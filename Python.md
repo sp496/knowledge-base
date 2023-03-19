@@ -44,4 +44,5 @@ source <venv>/bin/activate
 To deactivate the virtual environment, simply run the following command:
 ```bash
 deactivate
+
 ```

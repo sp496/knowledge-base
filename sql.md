@@ -1,12 +1,67 @@
 # SQL notes
 
-## Left join conditions
+## Join behaviour
 
-In a LEFT JOIN, you can apply a condition on the right side column by including that condition in the ON clause of the
-JOIN statement. The ON clause is used to specify the conditions that must be satisfied for a row to be included in the
-result set of the JOIN operation.
+### Left Join
 
-Here's an example of a LEFT JOIN with a condition on the right side column:
+Consider two tables table1 and table2
+
+```text
+table1
++----+---------+
+| id1 | value1 |
++----+---------+
+| 1  |    a    |
+| 2  |    b    |
+| 3  |    c    | 
++----+---------+
+
+table2
++----+---------+
+| id2 | value2 |
++----+---------+
+| 1  |    x    |
+| 2  |    y    |
+| 3  |    z    | 
++----+---------+
+
+table3
++----+---------+
+| id3 | value3 |
++----+---------+
+| 4  |    p    |
+| 5  |    q    |
+| 6  |    r    | 
++----+---------+
+
+table4
++----+---------+
+| id4 | value4 |
++----+---------+
+| 3  |    o    |
+| 4  |    p    |
+| 5  |    q    | 
++----+---------+
+
+
+```
+
+Template for creating tables like above
+
+```sql
+CREATE TABLE tablen (
+    idn INT PRIMARY KEY,
+    valuen VARCHAR(50) NOT NULL
+);
+
+INSERT INTO tablen (idn, valuen) VALUES (1, 'a'), (2, 'b'), (3, 'c');
+
+```
+
+retrive everyting from the left table irrespective of the contitions specified on teh left table in the ON clause.
+The ON clause determines what will be retrieved from the right table.
+so in the below example it would be, retrive the rows of table2 when `table1.id1 = table2.id2`
+-
 
 ```sql
 SELECT
@@ -16,32 +71,200 @@ FROM
 LEFT JOIN
     table2
     ON
-        table1.column1 = table2.column1
-        AND
-        table2.column2 = 'some_value'
+        table1.id1 = table2.id2;
 ```
 
-In this example, the condition table2.column2 = 'some_value' is applied on the right side column column2. This condition
-is included in the ON clause along with the condition that specifies the join condition between table1 and table2.
+```text
+ id1 | value1 | id2 | value2 
+-----+--------+-----+--------
+   1 | a      |   1 | x
+   2 | b      |   2 | y
+   3 | c      |   3 | z
+```
 
-Note that if the condition applies only to the right side table, it's equivalent to a WHERE clause. So, you could also
-write:
+-
 
 ```sql
 SELECT
     *
 FROM
     table1
-LEFT JOIN 
-    table2
+LEFT JOIN
+    table3
     ON
-        table1.column1 = table2.column1
-WHERE
-    table2.column2 = 'some_value'
+        table1.id1 = table3.id3;
 ```
 
-This query would give you the same result as the previous one, but it's not the same as the LEFT JOIN with a condition
-in the ON clause. The main difference is that in the latter case, all rows from table1 are returned, even if there is no
-match in table2. The rows from table2 that don't satisfy the condition are included in the result set with NULL values
-for the columns of table2. In the former case, rows from table2 that don't satisfy the condition are not included in the
-result set at all.
+```text
+ id1 | value1 | id3 | value3 
+-----+--------+-----+--------
+   1 | a      |     | 
+   2 | b      |     | 
+   3 | c      |     | 
+```
+
+-
+
+```sql
+SELECT
+    *
+FROM
+    table1
+LEFT JOIN
+    table4
+    ON
+        table1.id1 = table4.id4;
+```
+
+```text
+ id1 | value1 | id4 | value4 
+-----+--------+-----+--------
+   1 | a      |     | 
+   2 | b      |     | 
+   3 | c      |   3 | o
+
+```
+
+-
+retrive the rows of table2 when `table1.id1 = 4`
+
+```sql
+SELECT
+    *
+FROM
+    table1
+LEFT JOIN
+    table2
+    ON
+        table1.id1 = 4;
+```
+
+```text
+ id1 | value1 | id2 | value2 
+-----+--------+-----+--------
+   1 | a      |     | 
+   2 | b      |     | 
+   3 | c      |     | 
+```
+
+-
+retrive the rows of table2 when `table1.id1 = 1`
+
+```sql
+SELECT
+    *
+FROM
+    table1
+LEFT JOIN
+    table2
+    ON
+        table1.id1 = 1;
+```
+
+```text
+ id1 | value1 | id2 | value2 
+-----+--------+-----+--------
+   1 | a      |   1 | x
+   1 | a      |   2 | y
+   1 | a      |   3 | z
+   2 | b      |     | 
+   3 | c      |     | 
+```
+
+Retrieve subset of the rows of table2 where `table2.id2 = 1` when `table1.id1 = 1`
+
+```sql
+SELECT
+    *
+FROM
+    table1
+LEFT JOIN
+    table2
+    ON
+        table1.id1 = 1
+    AND
+        table2.id2 = 1;
+```
+
+```text
+ id1 | value1 | id2 | value2 
+-----+--------+-----+--------
+   1 | a      |   1 | x
+   2 | b      |     | 
+   3 | c      |     | 
+```
+
+-
+Retrieve subset of the rows of table2 where `table2.id2 = 2` when `table1.id1 = 1`
+
+```sql
+SELECT
+    *
+FROM
+    table1
+LEFT JOIN
+    table2
+    ON
+        table1.id1 = 1
+    AND
+        table2.id2 = 2;
+```
+
+```text
+ id1 | value1 | id2 | value2 
+-----+--------+-----+--------
+   1 | a      |   2 | y
+   2 | b      |     | 
+   3 | c      |     | 
+```
+
+```sql
+SELECT
+    *
+FROM
+    table1
+LEFT JOIN
+    table2
+    ON
+        table2.id2 = 1;
+```
+
+```text
+ id1 | value1 | id2 | value2 
+-----+--------+-----+--------
+   1 | a      |   1 | x
+   2 | b      |   1 | x
+   3 | c      |   1 | x
+```
+
+```sql
+SELECT
+    *
+FROM
+    table1
+LEFT JOIN
+    table2
+    ON
+        table1.id1 = 1
+    OR
+        table1.id1 = 2
+    OR
+        table1.id1 = 3
+    ;
+```
+
+```text
+ id1 | value1 | id2 | value2 
+-----+--------+-----+--------
+   1 | a      |   1 | x
+   1 | a      |   2 | y
+   1 | a      |   3 | z
+   2 | b      |   1 | x
+   2 | b      |   2 | y
+   2 | b      |   3 | z
+   3 | c      |   1 | x
+   3 | c      |   2 | y
+   3 | c      |   3 | z
+
+```
+
