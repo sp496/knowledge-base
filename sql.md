@@ -4,6 +4,14 @@
 
 ### Left Join
 
+Philosophy of a left join:
+
+- Based on the conditions defined in the ON clause retrieve the rows from the right table.
+- Retrieve everyting from the left table irrespective of the conditions specified on the left table in the ON clause. If
+  a row in the left table does not match the conditions specifed on the left table in the ON clause then return null
+  values for the right table for those rows.
+- Conditions in the WHERE clause are applied after the join is completed following the above principles
+
 Consider two tables table1 and table2
 
 ```text
@@ -56,10 +64,7 @@ CREATE TABLE tablen (
 
 INSERT INTO tablen (idn, valuen) VALUES (1, 'a'), (2, 'b'), (3, 'c');
 ```
--
-retrive everyting from the left table irrespective of the contitions specified on teh left table in the ON clause.
-The ON clause determines what will be retrieved from the right table.
-so in the below example it would be, retrive the rows of table2 when `table1.id1 = table2.id2`
+
 
 
 ```sql
@@ -125,6 +130,7 @@ LEFT JOIN
 ```
 
 -
+
 retrive the rows of table2 when `table1.id1 = 4`
 
 ```sql
@@ -147,6 +153,7 @@ LEFT JOIN
 ```
 
 -
+
 retrive the rows of table2 when `table1.id1 = 1`
 
 ```sql
@@ -194,6 +201,7 @@ LEFT JOIN
 ```
 
 -
+
 Retrieve subset of the rows of table2 where `table2.id2 = 2` when `table1.id1 = 1`
 
 ```sql
