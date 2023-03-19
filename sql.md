@@ -55,13 +55,12 @@ CREATE TABLE tablen (
 );
 
 INSERT INTO tablen (idn, valuen) VALUES (1, 'a'), (2, 'b'), (3, 'c');
-
 ```
-
+-
 retrive everyting from the left table irrespective of the contitions specified on teh left table in the ON clause.
 The ON clause determines what will be retrieved from the right table.
 so in the below example it would be, retrive the rows of table2 when `table1.id1 = table2.id2`
--
+
 
 ```sql
 SELECT
