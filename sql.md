@@ -6,7 +6,8 @@
 
 Philosophy of a left join:
 
-- Based on the conditions defined in the ON clause retrieve the rows from the right table.
+- Based on the conditions defined in the ON clause determine whether to retrieve and if yes, what rows to retrieve from
+  the right table.
 - Retrieve everyting from the left table irrespective of the conditions specified on the left table in the ON clause. If
   a row in the left table does not match the conditions specifed on the left table in the ON clause then return null
   values for the right table for those rows.
@@ -64,8 +65,6 @@ CREATE TABLE tablen (
 
 INSERT INTO tablen (idn, valuen) VALUES (1, 'a'), (2, 'b'), (3, 'c');
 ```
-
-
 
 ```sql
 SELECT
@@ -224,6 +223,9 @@ LEFT JOIN
    2 | b      |     | 
    3 | c      |     | 
 ```
+
+No condition on table1 is quivalent of saying all rows from table1 match thee condition. We further filter this saing we
+dont want all the rows from table2, just where the id is 1.
 
 ```sql
 SELECT
