@@ -9,7 +9,6 @@ even though the tasks are running on different cores they are still using the sa
 has 3 cores, running 3 tasks, on 3 different partitions you can get OOM error if the sum of the memory consumed by the 3
 partitions is greater than the total available memory in the executor.
 
-
 ### Small file problem
 
 In case of a spark code that reads data from a dfs, performs a transformation, and writes the data back to dfs
@@ -24,8 +23,7 @@ determines the number of partitions used in shuffling the data between stages. B
 appropriate value, you can balance the memory usage and the write performance, and optimize the output write operations
 for your specific use case.
 
-
-###  Does a task operate on a partiiton as a whole or an element of a partition?
+### Does a task operate on a partiiton as a whole or an element of a partition?
 
 In Spark, a task operates on a partition as a whole, rather than on an element of a partition.
 
@@ -38,10 +36,10 @@ elements of the partition. The task processes the data in the partition and prod
 another RDD or a result that is written to a file system.
 
 The partitioning of the data and the assignment of tasks to partitions is done automatically by Spark, based on the
-partitioning strategy used for the RDDs. Spark provides several built-in partitioning strategies, such as range
-partitioning, hash partitioning, and custom partitioning, which can be used to optimize the performance of the
-processing tasks based on the characteristics of the input data.
-
-In summary, a task in Spark operates on a partition as a whole, rather than on an element of a partition. The
-partitioning of the data and the assignment of tasks to partitions is done automatically by Spark, based on the
 partitioning strategy used for the RDDs.
+
+### spark.sql.shuffle.partitions
+
+### What is AQE
+
+https://www.intel.com/content/www/us/en/developer/articles/technical/spark-sql-adaptive-execution-at-100-tb.html
