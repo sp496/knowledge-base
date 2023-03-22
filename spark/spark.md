@@ -46,6 +46,8 @@ https://www.intel.com/content/www/us/en/developer/articles/technical/spark-sql-a
 
 ### Distributed shared memory vs RDDs
 
+**fine grained updates to mutable states vs coarse grained transformations on immutable objects**
+
 In-memory storage across clusters: You have a huge file and you want to process it in memory since operating on objects
 that are in memory is way faster than first loading them into disk and then operating on them. But the problem is that
 the file will not fit in memory of a single machine. One way to do this would be load chunks of the file into memory
@@ -57,15 +59,14 @@ Existing solutions for In-memory storage across clusters: Distributed shared mem
 
 DSM systems allow fine grained updates i.e. you can update each cell of each row of your file in memory. That sounds
 great
-but the problem occurs when you have to implement fault tolerance i.e when a machine in your cluster containing a
+but the problem occurs when you have to implement **fault tolerance** i.e when a machine in your cluster containing a
 partition of
 your large file breaks down. Now to make that available you have to log each update and keep replicating your data to
 another machine continuously
 so that if a machine is lost you can have another machine which contains the lost data using the logs (Replication log).
-Both these
-techniques have problems. When you use replication it means you have to copy a large amount of data across the network
+But there are problems. When you use replication it means you have to copy a large amount of data across the network
 to another machine.
-Networks bandwidths are not that great. Also storing logs of every update can increase the storage costs.
+Networks bandwidths between machines in a cluster are not that great. Also storing logs of every update can increase the storage costs.
 
 This is where coarse grained transforamtion comes in. RDDs don't allow you to make fine grained updates to your partiion
 of data,
@@ -82,5 +83,5 @@ RDDs.
 But that's not the whole picture, RDDs are only capable of solving usecases where you don't need fine grained updates to
 shared state. SO it is also said
 that **"RDDs are a restricted form of shared memory"**. Nevertheless, there are a lot of usecases, especially in
-analytics where we need a lot of
+analytics where we need
 coarse grained transformations instead of fine grained updates.
