@@ -321,8 +321,7 @@ When you define a new type of RDD. So this enables us to create new types of RDD
 scheduler. So if we want to create a new type of RDD we just have to define the below five methods properly. They
 capture all the information we need to know about dependencies.
 
-![img_10.png](img_10.png)
-<img src="img_13.png" width="500"/>
+<img src="img_10.png" width="500"/>
 
 Set of partitions: eg. I have one partiion per hdfs block
 
@@ -338,8 +337,7 @@ use this to optimize future operations on this dataset
 
 Examples
 
-![img_11.png](img_11.png)
-<img src="img_13.png" width="500"/>
+<img src="img_11.png" width="500"/>
 
 Simplest kind of RDD which is just inputs from an external system like hadoop.
 
@@ -352,8 +350,7 @@ preferredLocations: To access each block we can ask HDFS which machines are ther
 scheduler to use that. this is one of the things that the task scheduler and dagscheduler look at while launching the
 task.
 
-![img_12.png](img_12.png)
-<img src="img_13.png" width="500"/>
+<img src="img_12.png" width="500"/>
 
 This rdd has a parent. We override the first three methods
 
