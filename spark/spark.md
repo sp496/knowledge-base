@@ -92,11 +92,11 @@ that **"RDDs are a restricted form of shared memory"**. Nevertheless, there are 
 analytics where we need
 coarse grained transformations instead of fine grained updates.
 
-![img.png](img.png)
+<img src="img.png" width="500"/>
 
 ### Representing an RDD
 
-![img_1.png](img_1.png)
+<img src="img_1.png" width="500"/>
 
 ### Spark internals
 
@@ -106,7 +106,7 @@ Block manager: key value store that acts as a cache
 
 #### Components
 
-![img_2.png](img_2.png)
+<img src="img_2.png" width="500"/>
 
 In your program you create this object called spark context and then you create these distributed datasets called RDDs
 and you apply different operations on them.
@@ -133,7 +133,7 @@ each other
 
 #### Example Job
 
-![img_3.png](img_3.png)
+<img src="img_3.png" width="500"/>
 
 you first create a spark conbtext object you tell it to connect to a cluster. You create these distributed datasets
 called rdds. These are the objects that you work with.
@@ -145,7 +145,7 @@ going to turn these into a bunch of tasks and actually run them
 
 #### RDD graph
 
-![img_4.png](img_4.png)
+<img src="img_4.png" width="500"/>
 
 Each time you call filter and group by and all these transformations, you are building this graph of objects that
 depend on each other, eg. here we have file and errors. And each of these objects is a subclass of RDDs.
@@ -174,7 +174,7 @@ the filter in the same example you would still have only 4 tasks.
 
 #### Data locality
 
-![img_5.png](img_5.png)
+<img src="img_5.png" width="500"/>
 
 When spark does this scheduling it also knows about the **data locality** **and** about **data that's already cached**.
 Data locality is a hint in spark. Any task can run on any machine but when possible spark tries to assign tasks based
@@ -192,7 +192,7 @@ the hdfs block is instead of the machine where the filtered block was supposed t
 
 #### Life of a Job
 
-![img_6.png](img_6.png)
+<img src="img_6.png" width="500"/>
 
 first stage: RDD objects:
 In your code you are building up this graph of operators and datasets
@@ -239,7 +239,7 @@ start the reduce tasks
 So when you say submit each stage you mean submit each pipelined set of tasks(taskSet) as their parent becomes ready.
 So in our example we will submit stage 1 and 2 at the same time and when they are both done we submit the third stage.
 )
-![img_7.png](img_7.png)
+<img src="img_7.png" width="500"/>
 
 Essentially there are only two things a task can do
 
@@ -308,11 +308,11 @@ the count.
 
 How is DAGScheduler agnostic to the operators?
 
-![img_8.png](img_8.png)
+<img src="img_8.png" width="500"/>
 
 Capturing dependencies between datasets generically without having the scheduler know the details.
 
-![img_9.png](img_9.png)
+<img src="img_9.png" width="500"/>
 
 We have this RDD interface of RDD, it's based on 5 methods essentially. It captures all the information we need to know
 about dependencies. All the spark RDDs are written by subclassing this interface.
@@ -322,6 +322,7 @@ scheduler. So if we want to create a new type of RDD we just have to define the 
 capture all the information we need to know about dependencies.
 
 ![img_10.png](img_10.png)
+<img src="img_13.png" width="500"/>
 
 Set of partitions: eg. I have one partiion per hdfs block
 
@@ -338,6 +339,7 @@ use this to optimize future operations on this dataset
 Examples
 
 ![img_11.png](img_11.png)
+<img src="img_13.png" width="500"/>
 
 Simplest kind of RDD which is just inputs from an external system like hadoop.
 
@@ -351,6 +353,7 @@ scheduler to use that. this is one of the things that the task scheduler and dag
 task.
 
 ![img_12.png](img_12.png)
+<img src="img_13.png" width="500"/>
 
 This rdd has a parent. We override the first three methods
 
@@ -364,7 +367,7 @@ that pass the filter
 preferredLocations: The scheduler will automatically look at the parent if an rdd partition doesn't have preferred
 locations. If there's a shuffle then there are no preferred locations.
 
-<img src="img_13.png"  width="500"/>
+<img src="img_13.png" width="500"/>
 
 parttions: you set the number of reduce asks before so it's just one per task, and you configure it when you write your
 spark program.
