@@ -364,8 +364,8 @@ that pass the filter
 preferredLocations: The scheduler will automatically look at the parent if an rdd partition doesn't have preferred
 locations. If there's a shuffle then there are no preferred locations.
 
-![img_13.png](img_13.png)
-<img src="img_13.png" alt="drawing" width="500"/>
+<img src="img_13.png"  width="500"/>
+
 parttions: you set the number of reduce asks before so it's just one per task, and you configure it when you write your
 spark program.
 
