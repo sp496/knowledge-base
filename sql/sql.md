@@ -6,6 +6,10 @@
 
 Philosophy of a left join:
 
+When you are doing a left join and in the ON clause you are putting conditions on the right table then you are basically
+telling the query optimizer that instead of retrieving all teh rows from the right table retrieve only the rows that
+match teh condition
+
 - Based on the conditions defined in the ON clause determine whether to retrieve and if yes, what rows to retrieve from
   the right table.
 - Retrieve everyting from the left table irrespective of the conditions specified on the left table in the ON clause. If

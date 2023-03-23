@@ -48,6 +48,8 @@ https://www.intel.com/content/www/us/en/developer/articles/technical/spark-sql-a
 
 **fine grained updates to mutable states vs coarse grained transformations on immutable objects**
 
+**logging the data vs logging transformations**
+
 In-memory storage across clusters: You have a huge file and you want to process it in memory since operating on objects
 that are in memory is way faster than first loading them into disk and then operating on them. But the problem is that
 the file will not fit in memory of a single machine. One way to do this would be load chunks of the file into memory
@@ -66,7 +68,8 @@ another machine continuously
 so that if a machine is lost you can have another machine which contains the lost data using the logs (Replication log).
 But there are problems. When you use replication it means you have to copy a large amount of data across the network
 to another machine.
-Networks bandwidths between machines in a cluster are not that great. Also storing logs of every update can increase the storage costs.
+Networks bandwidths between machines in a cluster are not that great. Also storing logs of every update can increase the
+storage costs.
 
 This is where coarse grained transforamtion comes in. RDDs don't allow you to make fine grained updates to your partiion
 of data,
@@ -85,3 +88,28 @@ shared state. SO it is also said
 that **"RDDs are a restricted form of shared memory"**. Nevertheless, there are a lot of usecases, especially in
 analytics where we need
 coarse grained transformations instead of fine grained updates.
+
+![img.png](img.png)
+
+### Representing an RDD
+
+![img_1.png](img_1.png)
+
+### Spark internals
+
+In a single task one partiion will be processed. Is the partition processed element by element? Is the error count
+updated as a running count as each element of the partiion is processed? Or is the task performed on a partition as a
+whole and error count is updated in bulk?
+
+In Spark, a task corresponds to a single partition of an RDD, which is processed independently by a single executor.
+Within a task, the data is processed element by element by the executor, following the transformations specified in the
+DAG.
+
+In your case, once the task is sent to an executor, it will read and filter the log lines in the partition element by
+element. As each element is processed, the error count will be updated accordingly. Specifically, Spark will maintain a
+running count of errors for each partition, and update it as each element is processed.
+
+The updates to the error count will happen in-memory on the executor, and will be aggregated across all elements in the
+partition. Once the partition has been fully processed, the final error count for that partition will be returned to the
+driver as a result of the task. This process is repeated for each partition of the RDD, and the final error count is
+computed by aggregating the results from all the partitions.
