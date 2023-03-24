@@ -467,7 +467,8 @@ the dagscheduler to resubmit the previous stage.
 We run one task per cpu core
 
 Worker:
-x<img src="img_18.png" width="500"/>
+
+<img src="img_18.png" width="500"/>
 
 It just recieves these objects and calls run on them and the objects
 
