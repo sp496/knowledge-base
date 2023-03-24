@@ -323,14 +323,14 @@ capture all the information we need to know about dependencies.
 
 <img src="img_10.png" width="500"/>
 
-Set of partitions: eg. I have one partiion per hdfs block
+Set of partitions: eg. I have one partiion per hdfs blocks | Atomic pieces of a dataset
 
-List of dependencies on parent RDDs
+List of dependencies on parent RDDs | set of dependencies on parent RDDs
 
 Function to compute a partition given it parents: given an iterator for each of the parents you should produce an
-iterator for the output partition.
+iterator for the output partition. | function for computing the dataset based on its parents
 
-Optional preferred locations: locality preferences,
+Optional preferred locations: locality preferences 
 
 Optional partitioning info(Partitioner): Captures the data distribution at the output (of the RDD). The scheduler can
 use this to optimize future operations on this dataset
@@ -339,7 +339,8 @@ Examples
 
 <img src="img_11.png" width="500"/>
 
-Simplest kind of RDD which is just inputs from an external system like hadoop.
+Simplest kind of RDD which is just inputs from an external system like hadoop. | has a partition for each block of the
+file and knows which machine each block is on. 
 
 partiions method just returns one partition per block of the file. Maybe inside this partition object it has the block
 id
@@ -353,6 +354,9 @@ task.
 <img src="img_12.png" width="500"/>
 
 This rdd has a parent. We override the first three methods
+
+This is the result of a filter on the earlier RDD and has the same partiions, but it applies the map function 
+to the parent's daa when computing its elements.
 
 partitions are going to be same as parent, we are just going to filter each one in place
 
