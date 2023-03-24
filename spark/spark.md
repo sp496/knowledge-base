@@ -330,7 +330,7 @@ List of dependencies on parent RDDs | set of dependencies on parent RDDs
 Function to compute a partition given it parents: given an iterator for each of the parents you should produce an
 iterator for the output partition. | function for computing the dataset based on its parents
 
-Optional preferred locations: locality preferences 
+Optional preferred locations: locality preferences
 
 Optional partitioning info(Partitioner): Captures the data distribution at the output (of the RDD). The scheduler can
 use this to optimize future operations on this dataset
@@ -340,12 +340,14 @@ Examples
 <img src="img_11.png" width="500"/>
 
 Simplest kind of RDD which is just inputs from an external system like hadoop. | has a partition for each block of the
-file and knows which machine each block is on. 
+file and knows which machine each block is on.
 
 partiions method just returns one partition per block of the file. Maybe inside this partition object it has the block
 id
 
-the compute function is just to open up that block and read it
+the compute function is just to open up that block and read it, so just talk to hdfs and do this. Since it does not have
+a parent Id it cannot use the
+iterator of the parent to compute the child.
 
 preferredLocations: To access each block we can ask HDFS which machines are there copies on and we wanna tell the
 scheduler to use that. this is one of the things that the task scheduler and dagscheduler look at while launching the
@@ -355,7 +357,7 @@ task.
 
 This rdd has a parent. We override the first three methods
 
-This is the result of a filter on the earlier RDD and has the same partiions, but it applies the map function 
+This is the result of a filter on the earlier RDD and has the same partiions, but it applies the map function
 to the parent's daa when computing its elements.
 
 partitions are going to be same as parent, we are just going to filter each one in place
@@ -378,12 +380,134 @@ dependencies: we have a special type of dependency known as the shuffle dependen
 compute(partiion) : Now you get iterators for the shuffled data. You just read the keys from each one and do a local
 join for the things that were hashed to your partition.
 
-preferredLocations: It has no placement permissions because you can place the reduce task anywhere, it has to use the 
+preferredLocations: It has no placement permissions because you can place the reduce task anywhere, it has to use the
 network to fetch the data anyway
 
 partiions: we know that the output is going to be hash partitoned because we did a shuffle and that hashes the data.
 it's nice because later on when we do other operations on this spark can sometimes avoid reshuffling the data because
 it already knows that the data is shuffled.
+
+#### Dependencies
+
+<img src="img_14.png" width="500"/>
+
+Narrow: One to one, essentialy things that can be pipelined. 
+
+Wide: All to all, each output partiion depends on all of the input partiions. 
+
+DAGScheduler:
+
+<img src="img_15.png" width="500"/>
+
+"The actual dasgscheduler object has this nice interface to the outside world that all the actions used to run and then
+it looks at these dependencies and these objects that actually do stuff."
+
+The interface to this is this method called run job and essentially you just give it an Rdd that you want to run the job
+on, you give it a function to run on each partiion, you give it an object to listen for the results so each time a one
+of the tasks completes and you get a result back the listener function is called.
+
+Scheduler Optimizations:
+
+<img src="img_16.png" width="500"/>
+
+group narrow transformations into tasks.
+
+We are joining one rdd that has 3 partitions and one rdd that has 4 partiions and we have decided that the output has
+only 3 partiions so we dn't need to shuffle the rdd which has 3 partiions. So the output rdd has a narrow dependency on the 
+rdd with 3 partiions and a wide dependency on the rdd with 4 partiions. Also since the rdd3 is cached in memory the
+scheduler will place those tasks on the machines where it is cached.
+
+Workers are long running JVMs shared across tasks
+
+How the scheduler knows previously cached data?
+As the workers complete stuff, if the dataset was marked to be cached they will tell the master, they'll say now I have 
+partiion 5 of this dataset in memory. So each time when the master schedules a job it look at that and asks which ones
+are already available. And how does it know that the partiions are still available after some time? The workers tell
+the master when they drop the partiion from memory. 
+
+The placements are only a hint, the task objects are designed to run on any node, if you put them on a node where the
+data is cached they will read it from the cache, otherwise they will go back and recompute it or whatever it takes to
+get that back. So it's okay that we hear that the partiion was dropped from memory on a machine after we sent a task
+to that machine.
+
+How is the life cycle of the cache data related to the lifecycle of the task?
+The cached data stays cached until enough other cached data is created that it is evicted using the LRU policy on the
+node. So the task can exit but the data will still be cached. The workers are persistent, all the tasks run in the same
+jvm on each machine and that jvm stays around between tasks. The cached data is just sitting in the worker's memory.
+
+
+
+Task details:
+
+<img src="img_17.png" width="500"/>
+
+The way tasks begin is only at shuffle boundaries or external storage. When task runs, it runs multiple functions
+that are chained together into these iterators. There can be 2 kind of outputs. One is a result that it sends to the
+master eg. in count we send back an integer or it can create an output file that will be fetched in a later stage.
+
+So from the pov of the worker running these tasks that's all that happens, it just gets this thing and runs it and sees
+what happens.
+
+We save the map output instead of piping them directly to the next stage. Reasons are simplicity and to allow you to
+retry reduce tasks when they fail. So the map outputs are saved in memory first and then fall to disk.
+
+Garbage collection:
+
+The memory reperesentation of map outputs is bytes (serialized) this is because they are going to be shipped over the
+network
+
+The task objects are designed to be self contained so even if you are working on cached data it includes the functions
+that built you all the way from the input which is either a shuffle boundary or the hadoop file. What that means
+is that we can send a task to a node that doesn't have the data cached, or even if all copies of the data are lost
+the task will still be able to run but it will just end up recomputing stuff.
+
+Only way a task can fail is if we lost the map output file from the previous stage and then we give up on it and tell
+the dagscheduler to resubmit the previous stage.
+
+We run one task per cpu core
+
+Worker:
+x<img src="img_18.png" width="500"/>
+
+It just recieves these objects and calls run on them and the objects
+
+Other Components:
+
+<img src="img_19.png" width="500"/>
+
+read only key value store
+
+Deals with serving blocks between machines
+
+<img src="img_20.png" width="500"/>
+
+Does this networking and shuffle
+
+<img src="img_21.png" width="500"/>
+
+Tells the reduce tasks where to fetch map outputs from. Each worker caches the map locations and this thing deals with
+invalidating them as well
+
+
+How does the task do chaining of operators?
+
+Compute returns an iterator and most of the time it takes in an iterator as well. So FilteredRDD's compute on a split
+is: call iterator on the parent and take its iterator and filter it.
+
+How does this get into the task object?
+Say we did a filter and then a map or something the task is gonna take the map guy is going to call compute on it and
+then the compute is going to recursively call the parent. So the task actually takes all the java objects here, they get
+serialized using java serialization. Because filteredRDD has a pointer to its parent we also get its parent and then
+when we call compute on like the outer guy it will ask its parent to compute stuff.
+
+So for eg. result task is a task that returns a result back to the master instead of writing map output files. It has 
+an rdd it needs to run on, it has a split, it calls rdd.iterator on the split. The rdd objects automatically capture
+that chain so it's just some recursive stuff.
+
+iterator is differnt from compute: So compute is like "build it for me, like actally do the computation" and iterator
+is "if you have it cached, give me the one from the cache" so clients always call iterator but implementers always 
+implement compute.
+
 
 
 
