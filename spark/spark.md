@@ -507,7 +507,10 @@ that chain so it's just some recursive stuff.
 
 iterator is differnt from compute: So compute is like "build it for me, like actally do the computation" and iterator
 is "if you have it cached, give me the one from the cache" so clients always call iterator but implementers always 
-implement compute.
+implement compute. So if you are creating a new type of RDD you will implemnt compute. But when it is actally being
+used it will be used as iterator.
+
+
 
 
 
