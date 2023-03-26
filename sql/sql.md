@@ -378,3 +378,67 @@ The output of this code will be:
 +---+-----+
 ```
 As you can see, the resulting DataFrame (leftsemi_join_df) does not include any duplicates, even though the left DataFrame (df1) has multiple matching rows in the right DataFrame (df2).
+
+
+## difference between left outer join and left join
+
+Sure, here's an example that illustrates the difference between "left join" and "left outer join" when there are unmatched records in the left DataFrame:
+
+```text
+df1:
+
++----+-------+
+| id | value |
++----+-------+
+| 1  |  100  |
+| 4  |  400  |
++----+-------+
+
+df2:
++----+-------+
+| id | value |
++----+-------+
+| 1  |  100  |
+| 4  |  400  |
++----+-------+
+```
+
+If we do a "left join" on "id":
+
+```python
+df_join = df1.join(df2, on=["id"], how="left")
+```
+
+The result will be:
+
+```text
++----+-------+------+
+| id | value |value |
++----+-------+------+
+| 1  |  10   | 100  |
+| 2  |  20   | null |
+| 3  |  30   | null |
++----+-------+------+
+```
+
+As you can see, all the records from the left DataFrame are returned, and matching records from the right DataFrame are also included. For the unmatched records from the left DataFrame (id=2 and id=3), null values are added.
+
+If we do a "left outer join" on "id":
+
+```python
+df_join = df1.join(df2, on=["id"], how="left_outer")
+```
+The result will be:
+
+```text
++----+-------+------+
+| id | value |value |
++----+-------+------+
+| 1  |  10   | 100  |
+| 2  |  20   | null |
+| 3  |  30   | null |
+| 4  |  null | 400  |
++----+-------+------+
+```
+
+As you can see, "left outer join" returns all the records from the left DataFrame and matching records from the right DataFrame, as well as all the records from the left DataFrame that do not have a matching record in the right DataFrame. In this case, the record from the right DataFrame with id=4 is included, along with a null value for the "value" column from the left DataFrame.
