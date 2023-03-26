@@ -320,3 +320,61 @@ conditions are always applied consistently, regardless of the presence or absenc
 WHERE clause.
 
 
+
+
+## left semi join
+
+Yes, that's correct. One of the differences between a leftsemi join and a regular left join is that a leftsemi join does not duplicate rows from the left DataFrame that have multiple matching rows in the right DataFrame.
+
+For example, consider the following code:
+
+makefile
+Copy code
+from pyspark.sql.functions import col
+
+```python
+# Create two sample DataFrames with duplicates
+df1 = spark.createDataFrame([(1, "A"), (2, "B"), (3, "C"), (3, "D")], ["id", "value"])
+df2 = spark.createDataFrame([(2, "X"), (3, "Y"), (4, "Z"), (4, "W")], ["id", "value"])
+
+# Perform a left join and show the result
+left_join_df = df1.join(df2, on="id", how="left")
+left_join_df.show()
+```
+
+The output of this code will be:
+
+```text
++---+-----+-----+
+| id|value|value|
++---+-----+-----+
+|  1|    A| null|
+|  2|    B|    X|
+|  3|    C|    Y|
+|  3|    C|    Y|
+|  3|    D|    Y|
+|  3|    D|    Y|
++---+-----+-----+
+```
+
+As you can see, the resulting DataFrame (left_join_df) includes duplicates in the rows where the left DataFrame (df1) has multiple matching rows in the right DataFrame (df2).
+
+Now consider the following code using a leftsemi join:
+
+```python
+# Create two sample DataFrames with duplicates
+leftsemi_join_df = df1.join(df2, on="id", how="leftsemi")
+leftsemi_join_df.show()
+```
+
+The output of this code will be:
+
+```text
++---+-----+
+| id|value|
++---+-----+
+|  2|    B|
+|  3|    C|
++---+-----+
+```
+As you can see, the resulting DataFrame (leftsemi_join_df) does not include any duplicates, even though the left DataFrame (df1) has multiple matching rows in the right DataFrame (df2).
