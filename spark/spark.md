@@ -141,7 +141,9 @@ called rdds. These are the objects that you work with.
 Nothing actually gets computed until you run this thing called action. So action is a method that instead of returning
 an RDD it returns an integer or something so we actually have to go out and compute soemthing.
 At this point, when you call count the system is gonna look at all the transformations you did and say okay, how am I
-going to turn these into a bunch of tasks and actually run them
+going to turn these into a bunch of tasks and actually run them.
+
+So basically code gets converted into task objects. Or code gets put inside the task objects.
 
 #### RDD graph
 
@@ -369,6 +371,12 @@ that pass the filter
 
 preferredLocations: The scheduler will automatically look at the parent if an rdd partition doesn't have preferred
 locations. If there's a shuffle then there are no preferred locations.
+
+Finally, in a CachedDataset, the
+getIterator method looks for a locally cached copy of a
+transformed partition, and each partition’s preferred locations start out equal to the parent’s preferred locations, but
+get updated after the partition is cached on some node to
+prefer reusing that node
 
 <img src="img_13.png" width="500"/>
 
