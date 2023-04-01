@@ -370,7 +370,13 @@ compute(partition): you are given an iterator for the parent, look at the items 
 that pass the filter
 
 preferredLocations: The scheduler will automatically look at the parent if an rdd partition doesn't have preferred
-locations. If there's a shuffle then there are no preferred locations.
+locations. If there's a shuffle then there are no preferred locations. It's likely that the task scheduler looks at these rdds 
+in a bottom up approach, starting from the final rdd in the stage. If its preferred locations are none then the task scheduler
+will look at the preferences of its parent and so on.
+if an rdd has been cached then its
+preferred location gets updated to point to the location where it is cached. So any downstream rdd, and especially
+the last rdd will now have preferred locations to where the partition is cached. So the task scheduler will
+send the task to that location.
 
 Finally, in a CachedDataset, the
 getIterator method looks for a locally cached copy of a
