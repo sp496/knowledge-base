@@ -1,0 +1,284 @@
+id,body,parent_id
+1,What is the title?,
+2,Study of Magrolimab Combination Therapy in Patients With Non-Surgically Removable Locally Advanced or Metastatic Triple-Negative Breast Cancer (ELEVATE TNBC),1
+3,Who is responsible for ensuring the safety and scientific validity of a study?,
+4,Does listing a study imply that it has been evaluated by the U.S. Federal Government?,
+5,"The safety and scientific validity of this study is the responsibility of the study sponsor and investigators. Listing a study does not mean it has been evaluated by the U.S.
+Federal Government. Know the risks and potential benefits of clinical studies and talk to your health care provider before participating. Read our disclaimer for details.",3
+6,What is the ClinicalTrials.gov Identifier for the study mentioned in the text?,
+7,The ClinicalTrials.gov Identifier for the study is NCT04958785,6
+8,Is the study currently recruiting participants?,
+9,Yes the Recruitment Status is Recruiting,8
+10,When was the study first posted on ClinicalTrials.gov?,
+11,The study was first posted on 7/12/2021,10
+12,When was the last update posted for the study?,
+13,"The study was last updated on April 6, 2023",12
+14,How can interested individuals contact the Gilead Clinical Study Information Center for more information about the study?,
+15,For More information you can also refer to : https://clinicaltrials.gov/ct2/show/NCT04958785?term=NCT04958785&rank=1,14
+16,Who is the sponsor ?,
+17,Gilead Sciences is the sponsor,16
+18,Who is the responsible party?,
+19,Gilead Sciences is the responsible party,18
+20,"Individual Participant Data (IPD) Sharing Statement, Plan to Share IPD:",
+21,No,20
+22,Studies a U.S. FDA-regulated Drug Product?,
+23,Yes it studies a U.S. FDA-regulated Drug Product,22
+24,Studies a U.S. FDA-regulated Device Product?,
+25,"Yes, it studies a U.S. FDA-regulated Device Product",24
+26,Who are the investigators?,
+27,"The investigators  are the Study Director, Gilead Study Director, Gilead Sciences.",26
+28,clinical studies and the importance of making an informed decision about participating in them.,
+29,"Choosing to participate in a study is an important personal decision. Talk with your doctor and family members or friends about deciding to join a study. To learn more about this study, you or your doctor may contact the study research staff using the contacts provided 1-833-445-3230  ; Email :	GileadClinicalTrials@gilead.com	. For general information, Learn About Clinical Studies go to https://clinicaltrials.gov/ct2/about-studies/learn.",28
+30,What is the goal of this clinical study?,
+31,"The goals of this clinical study are to learn about the safety, tolerability, dosing and effectiveness of magrolimab in combination with nab-paclitaxel or paclitaxel (cohort 1) or with sacituzumab govitecan-hziy (cohort 2) in patients with non-surgically removable locally advanced or metastatic triple-negative breast cancer.",30
+32,What is the Condition or disease?,
+33,The Condition or disease is Triple-Negative Breast Cancer,32
+34,What is the Intervention/treatment ?,
+35,"The drugs being used in this clinical trial are Magrolimab, Nab-Paclitaxel, Paclitaxel, and Sacituzumab Govitecan-hziy.",34
+36,What is the phase of this clinical trial?,
+37,The phase of this clinical trial is Phase 2.,36
+38,give a Detailed Description,
+39,"The primary objective of this study for the safety run-in cohorts of the study is to evaluate the safety, tolerability,and recommended Phase 2 dose (RP2D) of magrolimab in combination with nab-paclitaxel or paclitaxel (Safety Run-In Cohort 1), and sacituzumab govitecan (Safety Run-In Cohort 2) in metastatic triple-negative breast cancer (mTNBC).
+The primary objective of this study for Phase 2 Cohort 1 is to compare the efficacy of magrolimab in combination with nab-paclitaxel or paclitaxel versus nab-paclitaxel or paclitaxel alone, as determined by progression-free survival (PFS) by investigator assessment.
+The primary objective of this study for Phase 2 Cohort 2 is to evaluate the efficacy of magrolimab in combination with sacituzumab govitecan as determined by confirmed objective response rate (ORR) by investigator assessment.",38
+40,What is the study type?,
+41,The study type is interventional (clinical trial).,40
+42,What is the estimated enrollment for this study?,
+43,The estimated enrollment for this study is 144 participants.,42
+44,What is the allocation method used in this study?,
+45,The allocation method used in this study is randomized.,44
+46,What is the intervention model for this study?,
+47,The intervention model for this study is sequential assignment.,46
+48,Is there masking involved in this study?,
+49," No, there is no masking involved in this study. It is an open label study.",48
+50,What is the primary purpose of this study?,
+51,The primary purpose of this study is treatment.,50
+52,What is the official title of this study?,
+53,"The official title of this study is ""A Phase 2 Study of Magrolimab Combination Therapy in Patients With Unresectable, Locally Advanced or Metastatic Triple-Negative Breast Cancer"".",52
+54,When did the actual study start?,
+55,"The actual study start date was December 14, 2021.",54
+56,When is the estimated primary completion date for this study?,
+57,The estimated primary completion date for this study is August 2024.,56
+58,When is the estimated study completion date?,
+59,The estimated study completion date is January 2025.,58
+60,What is the purpose of Arm 1 in this clinical trial?,
+61,"The purpose of Arm 1 in this clinical trial is to test the safety and effectiveness of Magrolimab in combination with Nab-Paclitaxel or Paclitaxel in patients with unresectable, locally advanced, or metastatic triple-negative breast cancer.",60
+62,How many days is each cycle of treatment for participants in Arm 1?,
+63,Each cycle of treatment for participants in Arm 1 is 28 days.,62
+64,How is Magrolimab administered to participants in Arm 1?,
+65,Magrolimab is administered intravenously to participants in Arm 1.,64
+66,Experimental: Phase 2 Cohort 1 Arm A: Magrolimab + Nab-Paclitaxel or Paclitaxel,
+67,"Participants with mTNBC will receive the RP2D determined in the Safety Run-in cohort of magrolimab in combination with nab-paclitaxel or paclitaxel administered according to local guidelines.
+Each cycle is 28 days.
+Magrolimab will be continued until development of unacceptable toxicity that cannot be clinically managed by dose or schedule modifications.
+Nab-paclitaxel or paclitaxel will be continued until development of unacceptable toxicity.
+Intervention/treatment : 
+Drug: Magrolimab,  Administered intravenously,Other Name: GS-4721
+Drug: Nab-Paclitaxel ,Administered intravenously, Other Name: Abraxane
+Drug: Paclitaxel, Administered intravenously, Other Name: Taxol®
+",66
+68,Active Comparator: Phase 2 Cohort 1 Arm B: Nab- Paclitaxel or Paclitaxel,
+69,"Participants with mTNBC will receive nab- paclitaxel or paclitaxel administered according to local guidelines.
+Each cycle is 28 days.
+Nab-paclitaxel or paclitaxel will be continued until development of unacceptable toxicity.
+Intervention/treatment : 
+Drug: Magrolimab,Administered intravenously,Other Name: GS-4721
+Drug: Nab-Paclitaxel,Administered intravenously,Other Name: Abraxane
+Drug: Paclitaxel ,Administered intravenously,Other Name: Taxol®",68
+70,Experimental: Safety Run-in Cohort 2: Magrolimab + Sacituzumab govitecan,
+71,"Participants with unresectable, locally advanced or metastatic TNBC who have received 1 prior line of treatment in the unresectable, locally advanced or metastatic setting will receive the following:
+--> magrolimab in de-escalating doses to establish RP2D
+--> sacituzumab govitecan on Days 1 and 8
+Each cycle is 21 days.
+Intervention/treatment : 
+Drug: Magrolimab,Administered intravenously,ther Name: GS-4721
+Drug: Sacituzumab Govitecan-hziy ,dministered intravenously,Other Names:GS-0132,rodelvy®",70
+72,Experimental: Safety Run-in Cohort 2: Magrolimab + Sacituzumab govitecan,
+73,"Participants with unresectable, locally advanced or metastatic TNBC who have received 1 prior
+line of treatment in the unresectable, locally advanced or metastatic setting will receive the following:
+magrolimab in de-escalating doses to establish RP2D
+sacituzumab govitecan on Days 1 and 8
+Each cycle is 21 days.
+Drug: Magrolimab
+Administered intravenously Other Name: GS-4721
+Intervention/treatment :
+Drug: Sacituzumab Govitecan-hziy,Administered intravenously,Other Names: GS-0132,Trodelvy®",72
+74,What is the Eligibility Criteria,
+75,"Ages Eligible for Study: 18 Years and older (Adult, Older Adult)
+Sexes Eligible for Study: All
+Accepts Healthy Volunteers: No",74
+76,Which Countries Clinical Trials is recruiting?,
+77,"Clinical trials is recruiting in USA, United Kingdom, Taiwan, Hong Kong and Australia ",76
+78,"Clinical trials recruiting in USA,  Arizona ",
+79,"Mayo Clinic	, Address :Phoenix, Arizona, United States, 85054",78
+80,"Clinical trials recruiting in USA,  California",
+81,"Women's Cancer Care, Address : Fresno, California, United States, 93710
+Providence Medical Foundation, Address :Fullerton, California, United States, 92835
+University of California San Francisco, Address :San Francisco, California, United States, 94115
+Saint John's Cancer Institute, Address: Santa Monica, California, United States, 90404
+Providence Medical Foundation, Address : Santa Rosa, California, United States, 95403",80
+82,"Clinical trials recruiting in USA, Florida",
+83,"Mayo Clinic, Address :Jacksonville, Florida, United States, 32224
+Tallahassee Memorial Healthcare Cancer Center, Address :Tallahassee, Florida, United States, 32308",82
+84,"Clinical trials recruiting in USA,  Georgia ",
+85,"University Cancer & Blood Center,LLC, Address :Athens, Georgia, United States, 30607
+Winship Cancer Institute Emory University, Address : Atlanta, Georgia, United States, 30322",84
+86,"Clinical trials recruiting in USA, Illinois",
+87,"Orchard Healthcare Research Inc, Address : Skokie, Illinois, United States, 60077",86
+88,"Clinical trials recruiting in USA, Minnesota",
+89,"Allina Health Cancer Institute, Address : Minneapolis, Minnesota, United States, 55407
+Mayo Clinic	, Address : Rochester, Minnesota, United States, 55905",88
+90,"Clinical trials recruiting in USA, New Jersey",
+91,"Astera Cancer Care, Address : East Brunswick, New Jersey, United States, 08816",90
+92,"Clinical trials recruiting in USA, New York",
+93,"Stony Brook University, Address : Stony Brook, New York, United States, 11794",92
+94,"Clinical trials recruiting in USA, South Carolina",
+95,"Charleston Oncology, Address : Charleston, South Carolina, United States, 29414",94
+96,"Clinical trials recruiting in USA, Utah",
+97,"Huntsman Cancer Institute, University of Utah, Address : Salt Lake City, Utah, United States, 84112",96
+98,"Clinical trials recruiting in Australia, Queensland",
+99,"Cairns and Hinterland Hospital and  Health  Service ,Cairns, Queensland, Australia, 4870 
+University of the Sunshine Coast	Recruiting ,Sippy Downs, Queensland, Australia, 4556
+Princess Alexandra  Hospital, Woolloongabba, Queensland, Australia, 4102",98
+100,"Clinical trials recruiting in Australia, South Australia",
+101,"Cancer Research SA	Recruiting, Adelaide, South Australia, Australia, 5000
+Flinders Medical Centre	,Bedford Park, South Australia, Australia, 5042",100
+102,"Clinical trials recruiting in Australia, Victoria ",
+103,"Box Hill Hospital, Box Hill, Victoria, Australia, 3128
+St Vincent's Hospital Melbourne, Fitzroy, Victoria, Australia, 3065
+Peninsula Health, Frankston, Victoria, Australia, 3199
+Barwon Health- University Hospital Geelong, Geelong, Victoria, Australia, '03220
+Ballarat Oncology & Haematology Services, endouree, Victoria, Australia, 3355",102
+104,Locations in Hong Kong ,state wise  where the clicnial trial is(Sites) Recruiting : 
+105,"Princess Margaret Hospital,Kowloon, Hong Kong
+Prince of Wales Hospital,New Territories, Hong Kong",104
+106,Locations in Taiwan state wise  where the clicnial trial is(Sites) Recruiting : ,
+107,"Kaohsiung Medical University Chung-Ho Memorial Hospital, Sanmin District, Taiwan, 80778",106
+108,Locations in United Kingdom where the clicnial trial is(Sites) Recruiting :  ,
+109,"Harrow Research Committee	, Leicester, United Kingdom, LE1 5WW
+University College London ,London, United Kingdom, WC1E 6BT
+The Christie NHS Foundation Trust, Manchester, United Kingdom, M20 4BX",108
+110,Locations in Hong Kong state wise  where the clicnial trial is(Sites) Withdrawn and not recruiting ,
+111,"Hong Kong United Oncology Centre	,  Hong Kong, Hong Kong 
+Queen Mary Hospital	Active, Hong Kong, Hong Kong",110
+112,What are Additional relevant MeSH terms?,
+113,"Breast Neoplasms
+Triple Negative Breast Neoplasms
+Neoplasms by Site
+Neoplasms
+Breast Diseases
+Skin Diseases
+Paclitaxel
+Albumin-Bound Paclitaxel
+Magrolimab
+Antineoplastic Agents, Phytogenic
+Antineoplastic Agents
+Tubulin Modulators
+Antimitotic Agents
+Mitosis Modulators
+Molecular Mechanisms of Pharmacological Action
+Antineoplastic Agents, Immunological",112
+114,What is teh Study Design?,
+115,"Study Type : Interventional (Clinical Trial)
+Estimated Enrollment : 144 participants
+Allocation:Randomized
+Intervention Model:Sequential Assignment
+Masking:None (Open Label)
+Primary Purpose: Treatment
+Official Title: A Phase 2 Study of Magrolimab Combination Therapy in Patients With Unresectable, Locally Advanced or Metastatic Triple-Negative Breast Cancer
+Actual Study Start Date :December 14, 2021
+Estimated Primary Completion Date :August 2024
+Estimated Study Completion Date :January 2025",114
+116,Experimental: Safety Run-in Cohort 1: Magrolimab + Nab-Paclitaxel or Paclitaxel,
+117,"Participants with untreated unresectable, locally advanced or metastatic TNBC whose tumors are not appropriate for immune checkpoint inhibitor therapy will receive the following:
+magrolimab in de-escalating doses to establish RP2D nab-paclitaxel or paclitaxel administered according to local guidelines.
+Each cycle is 28 days.
+Intervention/treatment
+Drug: Magrolimab ,Administered intravenously Other Name: GS-4721,
+Drug: Nab-Paclitaxel ,Administered intravenously Other Name: Abraxane
+Drug: Paclitaxel Administered intravenously Other Name: Taxol®",116
+118,Arms and Interventions : Arm : 2. Experimental: Phase 2 Cohort 1 Arm A: Magrolimab + Nab-Paclitaxel or Paclitaxel,
+119,"Participants with mTNBC will receive the RP2D determined in the Safety Run-in cohort of magrolimab in combination with nab-paclitaxel or paclitaxel administered according to local guidelines.
+Each cycle is 28 days.
+Magrolimab will be continued until development of unacceptable toxicity that cannot be clinically managed by dose or schedule modifications.
+Nab-paclitaxel or paclitaxel will be continued until development of unacceptable toxicity.
+Intervention/treatment : 
+Drug: Magrolimab,  Administered intravenously,Other Name: GS-4721
+Drug: Nab-Paclitaxel ,Administered intravenously, Other Name: Abraxane
+Drug: Paclitaxel, Administered intravenously, Other Name: Taxol®",118
+120,Arms and Interventions : Arm : 3.Active Comparator: Phase 2 Cohort 1 Arm B: Nab- Paclitaxel or Paclitaxel,
+121,"Participants with mTNBC will receive nab- paclitaxel or paclitaxel administered according to local guidelines.
+Each cycle is 28 days.
+Nab-paclitaxel or paclitaxel will be continued until development of unacceptable toxicity.
+Intervention/treatment : 
+Drug: Magrolimab,Administered intravenously,Other Name: GS-4721
+Drug: Nab-Paclitaxel,Administered intravenously,Other Name: Abraxane
+Drug: Paclitaxel ,Administered intravenously,Other Name: Taxol®",120
+122,Arms and Interventions : Arm : 4. Experimental: Safety Run-in Cohort 2: Magrolimab + Sacituzumab govitecan,
+123,"Participants with unresectable, locally advanced or metastatic TNBC who have received 1 prior line of treatment in the unresectable, locally advanced or metastatic setting will receive the following:
+--> magrolimab in de-escalating doses to establish RP2D
+--> sacituzumab govitecan on Days 1 and 8
+Each cycle is 21 days.
+Intervention/treatment : 
+Drug: Magrolimab,Administered intravenously,ther Name: GS-4721
+Drug: Sacituzumab Govitecan-hziy ,dministered intravenously,Other Names:GS-0132,rodelvy®",122
+124,"Arms and Interventions : 
+Arm : 5. Experimental: Safety Run-in Cohort 2: Magrolimab + Sacituzumab govitecan",
+125,"Participants with unresectable, locally advanced or metastatic TNBC who have received 1 prior
+line of treatment in the unresectable, locally advanced or metastatic setting will receive the following:
+magrolimab in de-escalating doses to establish RP2D
+sacituzumab govitecan on Days 1 and 8
+Each cycle is 21 days.
+Drug: Magrolimab
+Administered intravenously Other Name: GS-4721
+Intervention/treatment :
+Drug: Sacituzumab Govitecan-hziy,Administered intravenously,Other Names: GS-0132,Trodelvy®",124
+126,What are the primary outcome measures?,
+127,"1. Safety Run-in Cohorts: Percentage of Participants Experiencing Dose-Limiting Toxicities (DLTs), Adverse Events (AEs), and Laboratory Abnormalities According to National Cancer Institute (NCI).
+Common Terminology Criteria for AEs (CTCAE), Version 5.0 [ Time Frame: First dose date up to 35 months ]",126
+128,"2.	Phase 2 Cohort 1: PFS as Determined by Investigator Assessment Using RECIST Version 1.1 [ Time Frame: Up to 35 months ]
+PFS is defined as the time from the date of randomization until the earliest date of documented disease progression, as determined by investigator assessment per RECIST version 1.1, or death from any cause, whichever occurs first.",126
+129,"3.	Cohort 2 (Safety Run-In Cohort 2 and Phase 2 Cohort 2): Confirmed Objective Response Rate (ORR) as Determined by Investigator Assessment Using Response Evaluation Criteria in Solid Tumors (RECIST) Version 1.1 [ Time Frame: Up to 35 months ]
+The objective response rate (ORR) is defined as the proportion of participants who achieve a complete response (CR) or partial response (PR) as assessed by Response Evaluation Criteria In Solid Tumors (RECIST) v1.1.",126
+130,What are the Secondary Outcome Measures?,
+131,"1.	Phase 2 Cohort 1: Objective Response Rate (ORR) as Determined by Investigator Assessment [ Time Frame: Up to 35 months ]
+ORR is defined as the percentage of participants who achieve a complete response (CR) or partial response (PR), as measured by RECIST version 1.1, as determined by investigator assessment.",130
+132,"2.	Phase 2 Cohort 1 and Cohort 2 (Safety Run-in Cohort 2 and Phase 2 Cohort 2): Objective Response Rate (ORR) as Determined by Independent Central Review [ Time Frame: Up to 35 months ]ORR is defined as the percentage of participants who achieve a complete response (CR) or partial response (PR), as measured by RECIST version 1.1, as determined by independent central review.",130
+133,"3.	Cohort 2 (Safety Run-in Cohort 2 and Phase 2 Cohort 2): PFS as Determined by Investigator Assessment Using RECIST Version 1.1 [ Time Frame: Up to 35 months ]
+PFS is defined as the time from the date of randomization until the earliest date of documented disease progression, as determined by investigator assessment per RECIST version 1.1, or death from any cause, whichever occurs first.
+",130
+134,"4.	Phase 2 Cohort 1 and Cohort 2 (Safety Run-in Cohort 2 and Phase 2 Cohort 2): PFS as Determined by Independent Central Review Using RECIST Version 1.1 [ Time Frame: Up to 35 months ]
+PFS is defined as the time from the date of randomization until the earliest date of documented disease progression, as determined by independent central review per RECIST version 1.1, or death from any cause, whichever occurs first.",130
+135,"5.	Phase 2 Cohort 1 and Cohort 2 (Safety Run-in Cohort 2 and Phase 2 Cohort 2): Duration of Response (DOR) as Determined by Investigator Assessment per RECIST Version 1.1
+[ Time Frame: Up to 35 months ]
+
+DOR is defined as time from first documentation of complete response or partial response to the earliest date of documented disease progression, as determined by investigator assessment per RECIST version 1.1, or death from any cause, whichever occurs first.
+",130
+136,"6.	Phase 2 Cohort 1 and Cohort 2 (Safety Run-in Cohort 2 and Phase 2 Cohort 2): Duration of Response (DOR) as Determined by Independent Central Review per RECIST Version 1.1
+[ Time Frame: Up to 35 months ]
+DOR is defined as time from first documentation of complete response or partial response to the earliest date of documented disease progression, as determined by independent central review per RECIST version 1.1, or death from any cause, whichever occurs first.",130
+137,Phase 2 Cohort 1 and Cohort 2 (Safety Run-in Cohort 2 and Phase 2 Cohort 2): Overall Survival (OS) [ Time Frame: Up to 35 months ] OS is defined as time from date of randomization to death from any cause.7,130
+138,"8.	Magrolimab Concentration Versus Time [ Time Frame: Up to end of treatment (approximately 35 months) ]
+",130
+139,9. Antidrug Antibodies (ADA) to Magrolimab [ Time Frame: Up to end of treatment (approximately 35 months) ],130
+140,What is the key Inclusin criteria?,
+141,"Adequate performance status, hematologic, renal and liver function Measurable disease per RECIST v1.1
+Cohort 1: Individuals with previously untreated unresectable locally advanced or metastatic TNBC that are considered PD-L1 negative (as determined by an approved test according to local regulations)
+Cohort 2: Individuals with unresectable, locally advanced or metastatic TNBC who have received 1 prior line of therapy in the advanced setting (must have been previously treated with a taxane in any setting).
+ 
+Individuals with tumors that are considered positive for PD-L1 expression (as determined by an approved test according to local regulations) must have received an immune checkpoint inhibitor for first-line treatment of locally advanced/metastatic TNBC
+",140
+142,"Positive serum pregnancy test or breastfeeding female
+Active CNS disease. Individuals with asymptomatic and stable, treated CNS lesions (radiation and/or surgery and/or other CNS-directed therapy who have not received corticosteroids for at least 4 weeks) are allowed
+RBC transfusion dependence, defined as requiring more than 2 units of packed RBC transfusions during the 4-week period prior to screening. Red blood cell transfusions are permitted during the screening period and prior to enrollment to meet the hemoglobin inclusion criteria
+History of hemolytic anemia, autoimmune thrombocytopenia, or Evans syndrome in the last 3 months Prior treatment with CD47 or signal regulatory protein alpha-targeting agents
+Known inherited or acquired bleeding disorders
+Cohort 1 only: Disease progression within 6 months following neoadjuvant/adjuvant therapy or rapid visceral progression and/or symptomatic disease, where single-agent chemotherapy would not be appropriate.
+Cohort 2 only:
+Individuals with active chronic inflammatory bowel disease (ulcerative colitis, Crohn disease) and Individuals with a history of bowel obstruction or gastrointestinal perforation within 6 months of enrollment
+Individuals who previously received topoisomerase I inhibitors or antibody-drug conjugates containing a topoisomerase inhibitor
+High-dose systemic corticosteroids (≥ 20 mg of prednisone or its equivalent) are not allowed within 2 weeks of Cycle 1 Day 1
+Have not recovered (ie, ≥ Grade 2 is considered not recovered) from AEs due to a previously administered agent
+Note: individuals with any grade neuropathy or alopecia are an exception to this criterion and will qualify for the study
+Note: if individuals received major surgery, they must have recovered adequately from the toxicity and/or complications from the intervention prior to starting therapy
+Note: Other protocol defined Inclusion/Exclusion criteria may apply.",140
