@@ -21,4 +21,16 @@ In case of Tumbling windo trigger too a similar concept is used, tumbling window
 processing. So in such cases we can have multiple instances of the pipeline(being triggered by the tumbling window
 trigger)
 
+## Storage Accounts
+
+### Authentication
+
+### Shared Access Signature (SAS Token)
+
+An account key gives the the user possessing the key the entire access to the data in the storage account
+
+SAS allows granular control on how someone can access the data.
+* What resources the client may access.
+* What permissions they have to those resources.
+* How long the SAS is valid.
 
