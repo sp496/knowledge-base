@@ -166,6 +166,7 @@ parallel this behavior.
 ## Banches
 
 `git branch`: show all branches
+
 ![img_5.png](img_5.png)
 
  The
@@ -183,6 +184,7 @@ indicating the snapshot that is currently checked out**. This means the red
 circle in each of our history diagrams actually represents Git’s
 HEAD. The following figure shows the state of our repository
 before and after we checked out an old commit.
+
 ![img_6.png](img_6.png)
 
 As shown in the “before” diagram, the HEAD normally
@@ -200,6 +202,7 @@ when we are in the detached HEAD state. This creates a branch which has the same
 Right now, the crazy branch, HEAD, and working
 directory are the exact same as the fourth commit.  But as soon as we add(commit)
 another snapshot, we’ll see a fork in our project history
+
 ![img_12.png](img_12.png)
 
 ]![img_7.png](img_7.png)
@@ -208,11 +211,14 @@ Add a new file and do
 `git commit`
 
 ![img_11.png](img_11.png)
+
 as wee can see `git log` only shows the history of the current branch
+
 ![img_9.png](img_9.png)
 
 Note that the history before the fork is considered part of the new
 branch
+
 ![img_13.png](img_13.png)
 
 #### Renaming a file
@@ -229,6 +235,7 @@ branch
 development environments after they forked. You can think of them as separate
 project folders that you switch between with git checkout. They
 do, however, share their first four commits.
+
 ![img_15.png](img_15.png)
 
 
