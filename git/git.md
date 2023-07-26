@@ -58,9 +58,9 @@ A snapshot represents the state of your project at a given point in time.
 creating a snapshot = staging or you can say staging a snapshot
 We can add or remove multiple files to a snapshot before commiting it
 
-We can group relevant changes into distinct snapshots for meaningful progression of software instead of arbitary lines of code
+**We can group relevant changes into distinct snapshots for meaningful progression of software instead of arbitary lines of code**
 
-Saving a version of your project is a two step process:
+**Saving a version of your project** is a two step process:
 1. Staging a snapshot:  Telling Git what files to include in the next commit.
 2. Commiting a snapshot:  Recording the staged snapshot with a descriptive message.
 
@@ -68,6 +68,7 @@ Commiting a snapshot will record it into the repositoy
 
 `git log`: view project history; show commited changes\
 `git status`: show staged changes
+
 ![img.png](img.png)
 
 `git config --global user.name "Your Name"`
@@ -76,19 +77,21 @@ Commiting a snapshot will record it into the repositoy
 
 
 ![img_1.png](img_1.png)
+
 Each circle represents a commit, the red circle designates the commit
 we’re currently viewing, and the arrow points to the preceding commit.
 This last part may seem counterintuitive, but it reflects the underlying
-relationship between commits (that is, a new commit refers to its parent
-commit).
+relationship between commits (that is, a **new commit refers to its parent
+commit**).
+
+if output of git log is too long press space to go to end and then press q to return to command line
 
 `git log --oneline`
-if output of git log is too long press space to go to end and then press q to return to command line
 
 `git log --oneline blue.html`
 
-Adding files to the staging area, editing the files, once you are done with editing you have a staged snapshot,
-commit the snapshot
+**Adding files to the staging area, editing the files, once you are done with editing you have a staged snapshot,
+commit the snapshot**
 
 ![img_2.png](img_2.png)
 
@@ -130,10 +133,10 @@ branch.
 
 #### Undoing commited changes:
 
-git revert <commit-hash>
+`git revert <commit-hash>`
 This will not delete the commit, git will figure out how to undo the changes it contains and creates another commit
-with the resulting content. So this new commit and the commit before the commit that was reverted will represent the
-exact same snapshot. So git doesn't lose history even for reverted commits, the reverted commit is still accessible.
+with the resulting content. **So this new commit and the commit before the commit that was reverted will represent the
+exact same snapshot.** **So git doesn't lose history even for reverted commits**, the reverted commit is still accessible.
 
 ![img_3.png](img_3.png)
 
@@ -141,7 +144,7 @@ exact same snapshot. So git doesn't lose history even for reverted commits, the 
 For tracked files:\
 `git reset --hard`\
 This changes all tracked files to match the most recent commit. Note that the --hard flag is what actually updates the
-file.Running git reset without any flags will simply unstage the files, leaving its contents as is. git
+file.**Running git reset without any flags will simply unstage the files, leaving its contents as is**. git
 reset only operates on the working directory and the staging area, so
 our git log history remains unchanged.
 
@@ -269,6 +272,60 @@ As you can see in fast forwarding no extra commit is done
 `git branch -d` css deleting the css branch
 
 ![img_21.png](img_21.png)
+
+
+
+`git checkout crazy`
+
+`git merge master`
+
+![img_22.png](img_22.png)
+
+As we can see, this merge will add an extra commit to the history of the branch whereas in earlier merge(fastforward)
+that wasn't the case.
+
+![img_23.png](img_23.png)
+
+it has two parent commits.
+The above figure visualizes this with two arrows originating from the tip of
+crazy.  It’s like saying “this commit comes from both
+the crazy branch and from master.”
+
+**After the merge, the crazy branch has access to both its history
+and the master history.**
+
+
+`git commit -a -m "Add CSS stylesheet to rainbow.html"`
+
+Notice that we skipped the staging step this time around. Instead of using
+git add, we passed the -a flag to git
+commit. This convenient parameter tells Git to automatically include
+all tracked files in the staged snapshot.
+
+
+`git branch crazy-alt`\
+`git checkout crazy-alt`
+
+![img_24.png](img_24.png)
+
+`git commit -a -m "Make a REAL rainbow"`
+
+![img_25.png](img_25.png)
+
+`git checkout master`\
+`git branch news-hotfix`\
+`git checkout news-hotfix`\
+`git commit -m "Add 1st news item"`
+
+![img_27.png](img_27.png)
+
+`git checkout master`\
+`git merge news-hotfix`\
+`git branch -d news-hotfix`
+
+![img_28.png](img_28.png)
+
+
 
 
 
