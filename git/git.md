@@ -262,10 +262,10 @@ After two commits to css branch
 Instead of re-creating the commits in css and adding them to
 the history of master, Git reuses the existing snapshots and
 simply moves the tip of master to match the tip of
-css. This kind of merge is called a fast-forward
-merge. 
+css. **This kind of merge is called a fast-forward
+merge.** 
 
-As you can see in fast forwarding no extra commit is done
+**As you can see in fast forwarding no extra commit is done**
 
 ![img_19.png](img_19.png)
 
@@ -281,8 +281,8 @@ As you can see in fast forwarding no extra commit is done
 
 ![img_22.png](img_22.png)
 
-As we can see, this merge will add an extra commit to the history of the branch whereas in earlier merge(fastforward)
-that wasn't the case.
+**As we can see, this merge will add an extra commit to the history of the branch whereas in earlier merge(fastforward)
+that wasn't the case.**
 
 ![img_23.png](img_23.png)
 
@@ -326,7 +326,181 @@ all tracked files in the staged snapshot.
 ![img_28.png](img_28.png)
 
 
+This is our first merge conflict. Conflicts occur when we
+try to merge branches that have edited the same content. Git doesn’t know
+how to combine the two changes, so it stops to ask us what to do.
 
+`git status`
+
+![img_29.png](img_29.png)
+
+![img_30.png](img_30.png)
+
+We’re looking at the **staged snapshot of a merge commit**. We never saw
+this with the first 3-way merge because we didn’t have any conflicts to
+resolve. But now, Git stopped to let us modify files and resolve the conflict
+before committing the snapshot. The “Unmerged paths” section
+contains files that have a conflict.
+
+### Rebasing
+
+Git includes a tool to help us clean up our commits: `git
+rebase`. Rebasing lets us move branches around by changing the commit
+that they are based on.
+
+![img_31.png](img_31.png)
+
+After rebasing, the feature branch has a new parent commit,
+which is the same commit pointed to by master. **Instead of joining
+the branches with a merge commit, rebasing integrates the feature
+branch by building on top of master.**
+
+The result is a perfectly linear history that reads more like a story than the hodgepodge of
+unrelated edits shown above.
+
+
+
+
+`git branch about`\
+`git checkout about`\
+`git add about`\
+`git commit -m "Add empty page in about section"`\
+`git commit -a -m "Add contents to about page"`
+
+![img_32.png](img_32.png)
+
+hotfix!
+
+`git checkout master`\
+`git branch news-hotfix`\
+`git checkout news-hotfix`\
+`git commit -a -m "Add 2nd news item to index page"`\
+`git checkout master`\
+`git merge news-hotfix`\
+`git branch -d news-hotfix`
+
+The master branch hasn’t been altered since we created
+news-hotfix, so Git can perform a fast-forward merge.
+
+![img_33.png](img_33.png)`
+
+ We want to pull changes from master into a feature branch,
+only this time we’ll do it with a **rebase** instead of a merge.
+
+`git checkout about`\
+`git rebase master`\
+`git log --oneline`
+
+![img_34.png](img_34.png)
+
+Originally, the about branch was based on the Merge
+branch 'crazy-experiment' commit. The rebase took the entire
+about branch and plopped it onto the tip of the
+master branch.  like the git merge command, **`git rebase`
+requires you to be on the branch that you want to move**.
+
+![img_35.png](img_35.png)
+
+After the rebase, about is a linear extension of the
+master branch, **enabling us to do a fast-forward merge later on**.
+Rebasing also allowed us to integrate the most up-to-date version of
+master **without a merge commit**.
+
+git add about/me.html
+git commit -m "Add HTML page for personal bio"
+
+
+Remember that thanks to the rebase, about rests on top of
+master. So, **all of our about section commits are grouped together**,
+which would not be the case had we merged instead of rebased. This also
+eliminates an unnecessary fork in our project history.
+
+`git commit -m "Add empty HTML page for Mary's bio"`
+
+`git commit -a -m "Add link to about section in home page"`
+
+
+![img_36.png](img_36.png)
+
+Before we merge into the master branch, we should make sure we
+have a clean, meaningful history in our feature branch. By rebasing
+interactively, we can choose how each commit is transferred to the new
+base.
+
+Leaving it as is will do a normal git rebase, but if we move the
+lines around, we can change the order in which commits are applied.
+
+`git rebase -i master` 
+
+![img_37.png](img_37.png)
+
+![img_38.png](img_38.png)
+
+![img_39.png](img_39.png)
+
+
+#### Stop to amend a commit
+
+`git rebase -i master`
+
+![img_40.png](img_40.png)
+
+![img_41.png](img_41.png)
+
+
+When Git starts to move the second commit to the new base, it will stop to
+do some “amending.” This gives you the opportunity to alter the
+staged snapshot before committing it.
+
+`git add about/mary.html`\
+`git status`\
+`git commit --amend`
+
+ The new
+‑‑amend flag tells Git to replace the existing commit
+with the staged snapshot instead of creating a new one. This is also very
+useful for fixing premature commits that often occur during normal
+development.
+
+Remember that we’re in the middle of a rebase, and Git still has one
+more commit that it needs to re-apply. Tell Git that we’re ready to move
+on with the --continue flag:
+
+`git rebase --continue`\
+`git log --oneline`
+
+![img_43.png](img_43.png)
+
+Note that our history still appears to be the same (because we used the
+default commit message above), but the Begin creating bio pages
+commit contains different content than it did before the rebase, along with a
+new ID.
+
+If you ever find yourself lost in the middle of a rebase and you’re
+afraid to continue, you can use the `‑‑abort` flag to
+abandon it and start over from scratch.
+
+`git checkout master`\
+`git log --oneline`\
+![img_44.png](img_44.png)
+`git merge about`\
+`git log --oneline`\
+![img_45.png](img_45.png)
+
+`git branch -d about`
+`git log --oneline`\
+![img_46.png](img_46.png)
+
+![img_42.png](img_42.png)
+
+Rebasing enables fast-forward merges by moving a branch to the tip of
+another branch. It effectively eliminates the need for merge commits, resulting
+in a completely linear history.
+
+you can use the following command to force a
+merge commit when Git would normally do a fast-forward merge.
+
+`git merge --no-ff <branch-name>`
 
 
 
@@ -415,6 +589,11 @@ Delete a branch.
 `git rm <file>`
 Remove a file from the working directory (if applicable) and stop
 tracking the file.
+
+`git commit -a -m "<message>"`
+
+
+
 
 
 
